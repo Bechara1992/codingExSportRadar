@@ -42,7 +42,7 @@ describe("add game form", () => {
    * close popup should be called
    */
 
-  it("test form submission", async () => {
+  it("test form submission", () => {
     render(<AddGameForm closePopup={mockCloseFct} submit={mockSubmitFct} />);
     const submitBtn = screen.getByTestId("formSubmitBtn");
     const homeTeamInput = screen.getByTestId("homeTeamInput");
@@ -66,4 +66,12 @@ describe("add game form", () => {
     expect(homeTeamError).not.toBeInTheDocument();
     expect(awayTeamError).not.toBeInTheDocument();
   });
+
+  it("test cancel button"),
+    () => {
+      render(<AddGameForm closePopup={mockCloseFct} submit={mockSubmitFct} />);
+      const cancelBtn = screen.getByTestId("cancelBtn");
+      fireEvent.submit(cancelBtn);
+      expect(mockCloseFct).toBeCalled();
+    };
 });

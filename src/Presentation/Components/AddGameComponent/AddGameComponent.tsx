@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddGamePopup from "../AddGamePopupComponent/AddGamePopup";
 import AddGameForm from "../AddGamePopupComponent/AddGameForm";
+import { GameFormData } from "../../../Model/Types/GameFormData.model";
 
 interface IAddGameComponentProps {}
 const AddGameComponent = ({}: IAddGameComponentProps) => {
@@ -9,6 +10,8 @@ const AddGameComponent = ({}: IAddGameComponentProps) => {
   const closePopup = () => {
     setOpen(false);
   };
+
+  const addnewGame = (gameData: GameFormData) => {};
 
   return (
     <section className="flex flex-col" data-testid="add-game">
@@ -23,7 +26,7 @@ const AddGameComponent = ({}: IAddGameComponentProps) => {
         </button>
       </div>
       <AddGamePopup open={open} closePopup={closePopup}>
-        <AddGameForm />
+        <AddGameForm closePopup={closePopup} submit={addnewGame} />
       </AddGamePopup>
     </section>
   );
