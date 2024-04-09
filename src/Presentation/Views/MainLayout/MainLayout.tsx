@@ -1,6 +1,6 @@
 interface IMainLayoutProps {}
 const MainLayout = ({}: IMainLayoutProps) => {
-  return <div></div>;
+  return <main></main>;
 };
 
 export default MainLayout;

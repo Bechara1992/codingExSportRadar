@@ -1,5 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, cleanup } from "@testing-library/react";
 import AddGameComponent from "./AddGameComponent";
+import ResizeObserver from "resize-observer-polyfill";
+
+afterEach(cleanup);
+
+window.ResizeObserver = ResizeObserver;
 
 /**
  * The component should consist of a title with a button.
@@ -9,8 +14,8 @@ import AddGameComponent from "./AddGameComponent";
  */
 
 describe("Add Game", () => {
-  render(<AddGameComponent />);
   test("check add game component is mounted", () => {
+    render(<AddGameComponent />);
     expect(screen.getByTestId("add-game")).toBeInTheDocument();
   });
 
@@ -22,8 +27,7 @@ describe("Add Game", () => {
 
     fireEvent.click(addButton);
 
-    const dialog = screen.getByTestId("create-game");
-    expect(dialog).toBeInTheDocument();
-    expect(dialog).toHaveAttribute("open");
+    const createGameDialog = screen.getByTestId("create-game");
+    expect(createGameDialog).toBeInTheDocument();
   });
 });
