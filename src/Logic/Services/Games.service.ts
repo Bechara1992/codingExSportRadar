@@ -2,8 +2,6 @@ import Game from "../../Model/Types/Game.model";
 import { ScoreUpdateModel } from "../../Model/Types/ScoreUpdate.model";
 
 class GamesService {
-  constructor() {}
-
   updateGamesScoreAndOrder(
     games: Game[],
     scoreData: ScoreUpdateModel,
@@ -16,12 +14,10 @@ class GamesService {
       awayTeam: { ...games[selectedGame].awayTeam, score: scoreData.away },
     };
 
-    // const [gameDate, gameTotalScore] = [
-    //   games[selectedGame].startTime,
-    //   Math.round(games[selectedGame].homeTeam.score) +
-    //     Math.round(games[selectedGame].awayTeam.score),
-    // ];
+    return this.orderGames(games);
+  }
 
+  orderGames(games: Game[]) {
     games.sort((a: Game, b: Game) => {
       if (
         Math.round(a.awayTeam.score) + Math.round(a.homeTeam.score) !==

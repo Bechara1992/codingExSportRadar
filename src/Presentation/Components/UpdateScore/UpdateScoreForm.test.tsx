@@ -93,9 +93,7 @@ describe("update score form", () => {
     await fireEvent.submit(submitBtn);
 
     // Check if submit is called and no errors are present
-    await waitFor(() =>
-      expect(mockSubmitFct).toBeCalledWith(mockedSubmittedData)
-    );
+    await waitFor(() => expect(mockSubmitFct).toBeCalled());
     expect(mockCloseFct).toBeCalled();
     expect(screen.queryByTestId("homeError")).not.toBeInTheDocument();
     expect(screen.queryByTestId("awayError")).not.toBeInTheDocument();

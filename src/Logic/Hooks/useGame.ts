@@ -7,7 +7,7 @@ import GamesService from "../Services/Games.service";
 
 const useGame = () => {
   let [games, setGames] = useState<Game[]>([]);
-
+  const gamesService = new GamesService();
   const createGame = (gameData: GameFormData, index?: number) => {
     /**
      * A new game when created will have by default 0 scores,
@@ -29,11 +29,10 @@ const useGame = () => {
       },
       startTime: date,
     };
-    setGames([...games, newGame]);
+    setGames(gamesService.orderGames([...games, newGame]));
   };
 
   const updateGameScores = (scoreData: ScoreUpdateModel, id: string | null) => {
-    const gamesService = new GamesService();
     setGames((prev) =>
       gamesService.updateGamesScoreAndOrder(prev, scoreData, id)
     );

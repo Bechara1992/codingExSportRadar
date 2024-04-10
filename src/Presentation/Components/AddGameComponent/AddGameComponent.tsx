@@ -3,15 +3,19 @@ import Popup from "../ReusableComponents/Popup";
 import AddGameForm from "../AddGamePopupComponent/AddGameForm";
 import { GameFormData } from "../../../Model/Types/GameFormData.model";
 
-interface IAddGameComponentProps {}
-const AddGameComponent = ({}: IAddGameComponentProps) => {
+interface IAddGameComponentProps {
+  createGame: (gameData: GameFormData) => void;
+}
+const AddGameComponent = ({ createGame }: IAddGameComponentProps) => {
   let [open, setOpen] = useState<boolean>(false);
 
   const closePopup = () => {
     setOpen(false);
   };
 
-  const addnewGame = (gameData: GameFormData) => {};
+  const addnewGame = (gameData: GameFormData) => {
+    createGame(gameData);
+  };
 
   return (
     <section className="flex flex-col" data-testid="add-game">

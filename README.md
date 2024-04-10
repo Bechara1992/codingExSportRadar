@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# SCORE BOARD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application serves as both a score board and an interface allowing the user to create football games, edit the socres and end the games.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- No games present when the application is launched
+- User can add a new game by pressing on the + button where the user can enter 2 teams' names
+- Games added will be displayed as a list, where the user can click to edit the score or end the game.
+- Games will be sorted by the combined score of both teams
+- If 2 teams have the same score the most recent one would appear on top
+- Games will get sorted as well when a new game is created
 
-### `npm start`
+## Tech
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project is made with react and typescript. Solid principles are applied as best as could be for the project in hand. UI components have no complex logic in them and the logic is extracted into other logical components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Important notes
 
-### `npm test`
+> Since the pdf did not mention anything about showing 2 lists
+> one in the original creation sequence and another sorted as per the requirements
+> I only kept track of 1 list, where having a second one is just straight forward
+> however I tried to keep things as simple as possible.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+This app requires [Node.js](https://nodejs.org/) to run.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the dependencies and devDependencies and start the server.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+cd path-to-app-directory
+npm i
+npm start
+npm test (to run the test sequence)
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For production environments...
 
-### `npm run eject`
+```sh
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+For any additional questions and regards please feel free to contact me (bechara.murr@outlook.com).
+I would as well love to hear your feedback regardless of the outcome.

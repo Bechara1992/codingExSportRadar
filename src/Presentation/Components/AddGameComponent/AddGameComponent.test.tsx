@@ -7,10 +7,13 @@ import {
 } from "@testing-library/react";
 import AddGameComponent from "./AddGameComponent";
 import ResizeObserver from "resize-observer-polyfill";
+import { GameFormData } from "../../../Model/Types/GameFormData.model";
 
 afterEach(cleanup);
 
 window.ResizeObserver = ResizeObserver;
+
+const mockCreateGameFct = jest.fn((gameData: GameFormData) => {});
 
 /**
  * The component should consist of a title with a button.
@@ -21,12 +24,12 @@ window.ResizeObserver = ResizeObserver;
 
 describe("Add Game", () => {
   test("check add game component is mounted", () => {
-    render(<AddGameComponent />);
+    render(<AddGameComponent createGame={mockCreateGameFct} />);
     expect(screen.getByTestId("add-game")).toBeInTheDocument();
   });
 
   test("test add game button functionality", async () => {
-    render(<AddGameComponent />);
+    render(<AddGameComponent createGame={mockCreateGameFct} />);
 
     await act(async () => {
       const addButton = screen.getByTestId("add-btn");
