@@ -1,4 +1,4 @@
 export type GameFormData = {
   homeTeam: string;
-  awauTeam: string;
+  awayTeam: string;
 };
