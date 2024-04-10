@@ -1,4 +1,11 @@
-import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  cleanup,
+  waitFor,
+  act,
+} from "@testing-library/react";
 import AddGameComponent from "./AddGameComponent";
 import ResizeObserver from "resize-observer-polyfill";
 
@@ -19,13 +26,14 @@ describe("Add Game", () => {
     expect(screen.getByTestId("add-game")).toBeInTheDocument();
   });
 
-  test("test add game button functionality", () => {
+  test("test add game button functionality", async () => {
     render(<AddGameComponent />);
 
-    const addButton = screen.getByTestId("add-btn");
-    expect(addButton).toBeInTheDocument();
-
-    fireEvent.click(addButton);
+    await act(async () => {
+      const addButton = screen.getByTestId("add-btn");
+      expect(addButton).toBeInTheDocument();
+      fireEvent.click(addButton);
+    });
 
     const createGameDialog = screen.getByTestId("create-game");
     expect(createGameDialog).toBeInTheDocument();
