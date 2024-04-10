@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddGamePopup from "../AddGamePopupComponent/AddGamePopup";
+import Popup from "../ReusableComponents/Popup";
 import AddGameForm from "../AddGamePopupComponent/AddGameForm";
 import { GameFormData } from "../../../Model/Types/GameFormData.model";
 
@@ -25,9 +25,9 @@ const AddGameComponent = ({}: IAddGameComponentProps) => {
           +
         </button>
       </div>
-      <AddGamePopup open={open} closePopup={closePopup}>
+      <Popup open={open} closePopup={closePopup}>
         <AddGameForm closePopup={closePopup} submit={addnewGame} />
-      </AddGamePopup>
+      </Popup>
     </section>
   );
 };

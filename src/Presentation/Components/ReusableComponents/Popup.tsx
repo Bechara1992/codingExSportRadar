@@ -1,13 +1,13 @@
 import { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-interface IAddGamePopupProps {
+interface IPopupProps {
   open: boolean;
   closePopup: () => void;
   children: ReactNode;
 }
 
-const AddGamePopup = ({ open, closePopup, children }: IAddGamePopupProps) => {
+const Popup = ({ open, closePopup, children }: IPopupProps) => {
   return (
     <Transition.Root show={open} data-testid="create-game">
       <Dialog as="div" className="relative z-10" onClose={closePopup}>
@@ -45,4 +45,4 @@ const AddGamePopup = ({ open, closePopup, children }: IAddGamePopupProps) => {
   );
 };
 
-export default AddGamePopup;
+export default Popup;

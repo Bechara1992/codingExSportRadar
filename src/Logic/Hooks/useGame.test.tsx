@@ -1,7 +1,10 @@
 import { renderHook, act } from "@testing-library/react";
 import useGame from "./useGame";
 import { GameFormData } from "../../Model/Types/GameFormData.model";
-import { GamesMockData, scoreMockData } from "../MockData/GamesMockData";
+import {
+  GamesMockData,
+  scoreMockData,
+} from "../MockData/GamesCreatingMockData";
 import { ScoreUpdateModel } from "../../Model/Types/ScoreUpdate.model";
 
 /**
