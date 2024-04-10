@@ -3,7 +3,6 @@ import {
   render,
   screen,
   cleanup,
-  waitFor,
   act,
 } from "@testing-library/react";
 import AddGameComponent from "./AddGameComponent";
